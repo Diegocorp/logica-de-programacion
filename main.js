@@ -21,4 +21,25 @@ function BracketMatcher(str) {
   }
 }
 
-console.log(BracketMatcher("((coder)(byte)"));
+console.log(BracketMatcher(""));
+
+//ANCHOR: Fibonacci with array
+
+function checkIsFibonacci(arr) {
+  let n = arr.length;
+
+  if (n == 1 || n == 2) return true;
+
+  // Sort array
+  arr.sort((a, b) => a - b);
+
+  // After sorting, check if every
+  // element is equal to the sum
+  // of previous 2 elements
+  for (i = 2; i < n; i++) {
+    if (arr[i - 1] + arr[i - 2] != arr[i]) return false;
+  }
+  return true;
+}
+
+console.log(checkIsFibonacci([8, 2, 4]));

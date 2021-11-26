@@ -43,3 +43,34 @@ function checkIsFibonacci(arr) {
 }
 
 console.log(checkIsFibonacci([8, 2, 4]));
+
+//ANCHOR: Count number repeatead in array
+
+function countNumberRepeatead(arr) {
+  const cities = {};
+  arr.forEach((city) => {
+    cities[city] = !cities[city] ? 1 : (cities[city] += 1);
+  });
+
+  return Object.keys(cities)
+    .map((city) => ({
+      name: city,
+      times: cities[city],
+    }))
+    .sort((a, b) => b.times - a.times)
+    .slice(0, 5)
+    .map((city) => city.name);
+}
+
+console.log(
+  countNumberRepeatead([
+    "madrid",
+    "elios",
+    "elios",
+    "mazer",
+    "moriga",
+    "laser",
+    "laser",
+    "ogina",
+  ])
+);
